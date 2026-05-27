@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <mete http-eguiv="x-UA-Compatible" content="Ie=edge"></mete>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <title>Tic Tac Toe</title>
+</head>
+
+<body>
+  <div class="drag">
+    <div class="dragBox">
+      <div class="cross" draggable="true" id="cross1" ondragstart="drag(event)"></div>
+    </div>
+    <div class="dragBox">
+      <div class="cross" draggable="true" id="cross2" ondragstart="drag(event)"></div>
+    </div>
+    <div class="dragBox">
+      <div class="cross" draggable="true" id="cross3" ondragstart="drag(event)"></div>
+    </div>
+    <div class="dragBox">
+      <div class="cross" draggable="true" id="cross4" ondragstart="drag(event)"></div>
+    </div>
+    <div class="dragBox">
+      <div class="cross" draggable="true" id="cross5" ondragstart="drag(event)"></div>
+    </div>
+  </div>
+  <!-- item bord  -->
+  <div class="board">
+    <div class="dropBox" id="cell-0" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div class="dropBox" id="cell-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div class="dropBox" id="cell-2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div class="dropBox" id="cell-3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div class="dropBox" id="cell-4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div class="dropBox" id="cell-5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div class="dropBox" id="cell-6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div class="dropBox" id="cell-7" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div class="dropBox" id="cell-8" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+  </div>
+  <!-- item bild circle  -->
+  <div class="drag">
+    <div class="dragBox">
+      <div class="circle" draggable="true" id="circle1" ondragstart="drag(event)"></div>
+    </div>
+    <div class="dragBox">
+      <div class="circle" draggable="true" id="circle2" ondragstart="drag(event)"></div>
+    </div>
+    <div class="dragBox">
+      <div class="circle" draggable="true" id="circle3" ondragstart="drag(event)"></div>
+    </div>
+    <div class="dragBox">
+      <div class="circle" draggable="true" id="circle4" ondragstart="drag(event)"></div>
+    </div>
+    <div class="dragBox">
+      <div class="circle" draggable="true" id="circle5" ondragstart="drag(event)"></div>
+    </div>
+  </div>
+  <button class="reset">Reset Game</button>
+  <script>
+    let gameActive = true;
+
+    function allowDrop(event) {
+      event.preventDefault();
+    }
+
+    function drag(event) {
+      event.dataTransfer.setData("text", event.target.id);
+    }
+
+    function drop(event) {
+      event.preventDefault();
+      if (!gameActive || event.target.children.length > 0) {
+        return; // Don't allow drop if game is over or cell is not empty
+      }
+      var data = event.dataTransfer.getData("text");
+      var draggedElement = document.getElementById(data);
+      
+      // Prevent dropping on another piece
+      if (event.target.classList.contains('dropBox')) {
+          event.target.appendChild(draggedElement);
+          checkWinner();
+      }
+    }
+
+    function checkWinner() {
+      const winningConditions = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+        [0, 4, 8], [2, 4, 6]             // Diagonals
+      ];
+
+      const cells = document.querySelectorAll('.dropBox');
+      let roundWon = false;
+      let winner = '';
+
+      for (let i = 0; i < winningConditions.length; i++) {
+        const winCondition = winningConditions[i];
+        const a = cells[winCondition[0]].children[0];
+        const b = cells[winCondition[1]].children[0];
+        const c = cells[winCondition[2]].children[0];
+
+        if (!a || !b || !c) {
+          continue; // If any cell in the condition is empty, skip
+        }
+
+        const aClass = a.className;
+        const bClass = b.className;
+        const cClass = c.className;
+
+        if (aClass === bClass && bClass === cClass) {
+          roundWon = true;
+          winner = aClass;
+          break;
+        }
+      }
+
+      if (roundWon) {
+        gameActive = false;
+        setTimeout(() => alert(`${winner.charAt(0).toUpperCase() + winner.slice(1)} wins!`), 100);
+        return;
+      }
+
+      // Check for a draw
+      let isDraw = true;
+      for (let i = 0; i < cells.length; i++) {
+        if (cells[i].children.length === 0) {
+          isDraw = false;
+          break;
+        }
+      }
+
+      if (isDraw) {
+        gameActive = false;
+        setTimeout(() => alert("It's a draw!"), 100);
+      }
+    }
+
+    // Reset Game functionality
+    document.querySelector('.reset').addEventListener('click', () => {
+      window.location.reload(); // The simplest way to reset the game
+    });
+  </script>
+</body>
+
+</html>
