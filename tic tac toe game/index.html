@@ -6,7 +6,7 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="stylesheet" type="text/css" href="style.css" />
 
   <title>Tic Tac Toe</title>
@@ -59,7 +59,7 @@
     <div class="dragBox">
       <div class="circle" draggable="true" id="circle5" ondragstart="drag(event)"></div>
     </div>
-    </div>
+  </div>
   <button class="reset">Reset Game</button>
   <script>
     let gameActive = true;
@@ -79,11 +79,11 @@
       }
       var data = event.dataTransfer.getData("text");
       var draggedElement = document.getElementById(data);
-      
+
       // Prevent dropping on another piece
       if (event.target.classList.contains('dropBox')) {
-          event.target.appendChild(draggedElement);
-          checkWinner();
+        event.target.appendChild(draggedElement);
+        checkWinner();
       }
     }
 
@@ -122,15 +122,15 @@
       if (roundWon) {
         gameActive = false;
         setTimeout(() => {
-            Swal.fire({
-                title: `${winner.charAt(0).toUpperCase() + winner.slice(1)} wins!`,
-                icon: 'success',
-                confirmButtonText: 'Play Again'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.reload();
-                }
-            });
+          Swal.fire({
+            title: `${winner.charAt(0).toUpperCase() + winner.slice(1)} wins!`,
+            icon: 'success',
+            confirmButtonText: 'Play Again'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.reload();
+            }
+          });
         }, 100);
         return;
       }
@@ -147,15 +147,15 @@
       if (isDraw) {
         gameActive = false;
         setTimeout(() => {
-            Swal.fire({
-                title: "It's a draw!",
-                icon: 'info',
-                confirmButtonText: 'Play Again'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.reload();
-                }
-            });
+          Swal.fire({
+            title: "It's a draw!",
+            icon: 'info',
+            confirmButtonText: 'Play Again'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.reload();
+            }
+          });
         }, 100);
       }
     }

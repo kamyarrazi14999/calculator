@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background: radial-gradient(circle at bottom, #172552, #020617 70%);
+  overflow: hidden;
+}
+/* item rocket  */
+.scene {
+  position: relative;
+}
+.rocket {
+  width: 70px;
+  height: 150px;
+  background: #fff;
+  border-radius: 50% 50% 20% 20%;
+  animation: float 2s ease-in-out infinite;
+  cursor: pointer;
+}
+@keyframes float {
+  50% {
+    transform: translateY(-12px);
+  }
+}
+.window {
+  width: 38px;
+  height: 38px;
+  background: #38bdf8;
+  border: 6px solid #334155;
+  border-radius: 50%;
+  position: absolute;
+  top: 38px;
+  left: 16px;
+}
+.fin {
+  position: absolute;
+  width: 30px;
+  height: 55px;
+  background: #ef4444;
+  bottom: 5px;
+}
