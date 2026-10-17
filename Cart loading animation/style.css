@@ -17,7 +17,7 @@ body {
 }
 .cart-stage {
   position: relative;
-  width: 180px;
+  width: 320px;
   height: 380px;
 }
 .cart-icon {
@@ -43,11 +43,45 @@ body {
   position: absolute;
   background: #6b6f76;
   left: 55%;
-  bottom: 66px;
+  bottom: 60px;
   width: 160px;
   height: 14px;
   border-radius: 50%;
   filter: blur(2px);
-  opacity: .3;
+  opacity: 0.3;
   animation: stageSlide 1s ease-in-out infinite;
 }
+.items {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 160px;
+  height: 180px;
+  transform: translateX(-50%);
+}
+.fall-item{
+    position:absolute;
+    left:50%;
+    top:0;
+    color:#33363b;
+    animation:fallIntorcart 1s linear infinite; 
+}
+.item-1{
+    margin-left: 30px;
+    animation-delay: 0s;
+}
+.item-2{
+    margin-left:30px;
+    animation-delay: 0.6s;
+    color:#6b6f76;
+}
+.item-4{
+    margin-left:10px;
+    animation-delay:1.2s
+}
+.item-5{
+    margin-left:10px;
+    animation-delay:1.8s;
+    color:#6b6f76;
+}
+
