@@ -6,11 +6,10 @@
 html,
 body {
   height: 100%;
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle at 50% 50%, #3058b6, #020617 70%);
+  background: #dcdfe6;
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
     Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -23,9 +22,9 @@ body {
 .cart-icon {
   position: absolute;
   left: 50%;
-  bottom: 40%;
+  bottom: 40px;
   transform: translateX(-50%);
-  color: #33363b;
+  color: #11439b;
   animation: stageSlide 1s ease-in-out infinite;
 }
 @keyframes stageSlide {
@@ -35,7 +34,7 @@ body {
   50% {
     transform: translateX(-60%);
   }
-  و 100% {
+  100% {
     transform: translateX(-50%);
   }
 }
@@ -48,7 +47,7 @@ body {
   height: 14px;
   border-radius: 50%;
   filter: blur(2px);
-  opacity: 0.3;
+  opacity: .3;
   animation: stageSlide 1s ease-in-out infinite;
 }
 .items {
@@ -60,28 +59,78 @@ body {
   transform: translateX(-50%);
 }
 .fall-item{
-    position:absolute;
-    left:50%;
-    top:0;
-    color:#33363b;
-    animation:fallIntorcart 1s linear infinite; 
-}
-.item-1{
-    margin-left: 30px;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    color: #dfba16;
+    animation: fallIntoCart 1s linear infinite;
+  }
+
+  .item-1{
+    margin-left: -30px;
     animation-delay: 0s;
-}
-.item-2{
-    margin-left:30px;
+
+  }
+
+  .item-2{
+    margin-left: -30px;
     animation-delay: 0.6s;
-    color:#6b6f76;
-}
-.item-4{
-    margin-left:10px;
-    animation-delay:1.2s
-}
+    color: #0ed467;
+  }
+
+
+  .item-4{
+    margin-left: 10px;
+    animation-delay: 1.2s;
+  }
+
 .item-5{
-    margin-left:10px;
-    animation-delay:1.8s;
-    color:#6b6f76;
+    margin-left: 10px;
+    animation-delay: 1.8s;
+    color: #b61c24;
 }
 
+
+
+@keyframes fallIntoCart {
+
+  0% {
+    opacity: 0;
+    transform: translateY(0) rotate(-20deg) scale(.7);
+  }
+
+  12% {
+    opacity: .3;
+    transform: translateY(26px) rotate(80deg) scale(.8);
+  }
+
+  35% {
+    opacity: .7;
+    transform: translateY(85px) rotate(-60deg) scale(.9);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(150px) rotate(10deg) scale(1);
+  }
+
+  75% {
+    transform: translateY(175px) rotate(-7deg) scale(.98);
+  }
+
+  86% {
+    opacity: 1;
+    transform: translateY(195px) rotate(5deg) scale(.95);
+  }
+
+  96% {
+    opacity: 0;
+    transform: translateY(225px) rotate(-3deg) scale(.5);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(225px) rotate(0deg) scale(.5);
+  }
+
+}
