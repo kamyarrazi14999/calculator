@@ -1,0 +1,28 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --f: "segoe UI Variable Display", "segoe UI", "sans-serif";
+  --n: "Bahnschrift", "segoe UI", "system-ui", "sans-serif";
+  --ac: #9a88ff;
+}
+body{
+    margin:0;
+    min-height: 100vh;
+    display:grid;
+    place-items: center;
+   padding:20px;
+   color:#dfe3ff;
+   font-family: var(--f);
+   background: radial-gradient(900px 700px at 50% 36%, #202660, #08081a 78%); }
+   .card{
+    position:relative;
+    width:min(700px,94vw);
+    padding:44px 28px 40px;
+    border-radius: 48px;
+text-align: center;
+background: linear-gradient(160deg,rgba(52,56,100,.95),rgba(22,24,46,.97)62%);
+box-shadow:0 40px 90px
+}

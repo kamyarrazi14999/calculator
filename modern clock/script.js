@@ -1,10 +1,27 @@
-const second = document.querySelector('.second');
-function updateClock() { 
-    const now = new Date();
-    const seconds = now.getSeconds();
-    now.getMilliseconds() / 1000;
-    second.style.transform = `rotate(${seconds * 6}deg)`;
-    requestAnimationFrame(updateClock);
-  
+// عنصر HTML با کلاس second را پیدا می‌کند تا بتوانیم ظاهر عقربه را تغییر دهیم.
+// مثال: <div class="second"></div> با این دستور انتخاب می‌شود.
+const second = document.querySelector(".second");
+
+// این تابع زمان فعلی را می‌خواند، عقربه را می‌چرخاند و اجرای بعدی را زمان‌بندی می‌کند.
+function updateClock() {
+  // Date یک شیء از زمان و تاریخ فعلی سیستم می‌سازد.
+  const now = new Date();
+
+  // getSeconds تعداد ثانیه‌های دقیقه را از ۰ تا ۵۹ برمی‌گرداند.
+  // مثال: اگر زمان ۱۰:۲۰:۱۵ باشد، مقدار seconds برابر ۱۵ است.
+  const seconds = now.getSeconds();
+
+  // میلی‌ثانیه را می‌خواند (۰ تا ۹۹۹)، اما در این نسخه از نتیجه استفاده نمی‌شود.
+  // برای حرکت کاملاً نرم می‌توان آن را در فرمول زاویه وارد کرد.
+  now.getMilliseconds() / 1000;
+
+  // هر ثانیه ۶ درجه است: ۳۶۰ درجه تقسیم بر ۶۰ ثانیه.
+  // مثال: ۱۵ ثانیه × ۶ = ۹۰ درجه؛ ۳۰ ثانیه = ۱۸۰ درجه.
+  second.style.transform = `rotate(${seconds * 6}deg)`;
+
+  // مرورگر تابع را پیش از فریم بعدی دوباره اجرا می‌کند تا ساعت به‌روز بماند.
+  requestAnimationFrame(updateClock);
 }
+
+// اجرای نخست تابع؛ ادامهٔ اجراها با requestAnimationFrame انجام می‌شود.
 updateClock();
