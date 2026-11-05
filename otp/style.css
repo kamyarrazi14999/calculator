@@ -8,21 +8,47 @@
   --n: "Bahnschrift", "segoe UI", "system-ui", "sans-serif";
   --ac: #9a88ff;
 }
-body{
-    margin:0;
-    min-height: 100vh;
-    display:grid;
-    place-items: center;
-   padding:20px;
-   color:#dfe3ff;
-   font-family: var(--f);
-   background: radial-gradient(900px 700px at 50% 36%, #202660, #08081a 78%); }
-   .card{
-    position:relative;
-    width:min(700px,94vw);
-    padding:44px 28px 40px;
-    border-radius: 48px;
-text-align: center;
-background: linear-gradient(160deg,rgba(52,56,100,.95),rgba(22,24,46,.97)62%);
-box-shadow:0 40px 90px
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  color: #dfe3ff;
+  font-family: var(--f);
+  background: radial-gradient(900px 700px at 50% 36%, #202660, #08081a 78%);
+}
+.card {
+  position: relative;
+  width: min(700px, 94vw);
+  padding: 44px 28px 40px;
+  border-radius: 48px;
+  text-align: center;
+  background: linear-gradient(
+    160deg,
+    rgba(52, 56, 100, 0.95),
+    rgba(22, 24, 46, 0.97) 62%
+  );
+  box-shadow:
+    0 40px 90px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+.ico {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+  border-radius: 24px;
+  display: grid;
+  place-items: center;
+background: linear-gradient(145deg, #5be39a, #1fae60); 
+}
+h1{
+  margin:0;
+  font-size: 34px;
+  font-weight: 800;
+  color: #fff;
+}
+.sub{
+  margin:8px 0 32px;
+  color:#f4f6ff;
 }
