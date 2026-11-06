@@ -221,7 +221,7 @@ body {
   box-shadow: 0 1px 3px rgb(31 62 52 / 22%);
   transform: translateX(-50%);
   transform-origin: bottom center;
-  animation: assemble 0.6s both;
+  animation: assemble 0.6s backwards;
 }
 
 .hour {
