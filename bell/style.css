@@ -1,0 +1,24 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+:root {
+  --panel: #edf0f5;
+  --card: #ffffff;
+  --ink: #131a23;
+  --muted: #68717f;
+  --line: #c3c9d3;
+  --chip: #e1e5ec;
+  --orange: #e2723a;
+  --orange-deep: #c4552a;
+  --tint: #fdf0e6;
+  --net: #a9afb9;
+  --ok: #389a66;
+  --paper: #ffffff;
+  --fold: #e4e7ec;
+  --fileline: #d3d7de;
+  --pdf: #d94a5f;
+  --shadow: rgba(24, 34, 54, .28);
+  --font: 'Figtree', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="claude:viewport-fit-sides" content="cover">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Basketball Style File Upload</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="stage" id="stage">
+        <div class="world" id="world">
+            <div class="hoopg" id="hoopg">
+                <div class="zone" id="zone">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 15V4" />
+                        <path d="M7.5 8.5 12 4l4.5 4.5" />
+                        <path d="M5 12.5V18a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5.5" />
+                    </svg>
+                    <div class="zt">Drop files here</div>
+                    <div class="zs">or take the shot</div>
+                </div>
+                <svg class="hoop" viewBox="0 0 400 260" aria-hidden="true">
+                    <rect class="board" x="150" y="96" width="100" height="56" rx="2" />
+                    <g class="net" id="net">
+                        <path class="meshline" id="mesh" />
+                    </g>
+                    <rect class="bracket" x="191" y="157" width="18" height="9" rx="1.5" />
+                    <ellipse class="rim" cx="200" cy="166" rx="52" ry="6" />
+                </svg>
+                <div class="pop" id="pop">+1</div>
+            </div>
+
+            <div id="dots"></div>
+            <svg class="aim" id="aim" aria-hidden="true" hidden>
+                <line class="band" id="band" x1="0" y1="0" x2="0" y2="0" />
+                <line class="arrow" id="aimLine" x1="0" y1="0" x2="0" y2="0" />
+                <path id="aimHead" d="" />
+            </svg>
+
+            <div class="file idle" id="file" role="button" tabindex="0" aria-label="Shoot the file into the hoop">
+                <div class="inner" id="fileInner"></div>
+            </div>
+            <div class="cap" id="cap"></div>
+        </div>
+
+        <header class="head" id="head">
+            <div class="headl">
+                <h1>Upload files</h1>
+                <p class="sub">Drag and drop, or take the shot.</p>
+                <div class="actions">
+                    <button class="btn" id="browse" type="button">Browse files</button>
+                    <button class="btn ghost" id="auto" type="button">Take the shot for me</button>
+                </div>
+            </div>
+            <div class="badge" id="badge">Uploaded <b id="count">0</b></div>
+        </header>
+
+        <div class="dock">
+            <p class="status" id="status" aria-live="polite">Pull the file back and let go to shoot.</p>
+            <ul class="list" id="list"></ul>
+        </div>
+        <input type="file" id="input" multiple hidden>
+    </div>
+
+
+</body>
+
+</html>
